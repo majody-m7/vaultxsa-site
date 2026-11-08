@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VaultX Industrial — فولت إكس الصناعية</title>
+<meta name="description" content="VaultX Industrial, Riyadh — spare parts recovery by reverse engineering, CNC machining, additive manufacturing, fixtures and molds. فولت إكس الصناعية — استعادة قطع الغيار بالهندسة العكسية، تشغيل CNC، التصنيع بالإضافة، التثبيتات والقوالب.">
+<meta property="og:title" content="VaultX Industrial — فولت إكس الصناعية">
+<meta property="og:description" content="Obsolete or hard-to-find part? We measure it, model it and make it — in Riyadh.">
+<meta name="theme-color" content="#1B1F24">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231B1F24'/%3E%3Cpath d='M8 9l8 15 8-15' fill='none' stroke='%23B87333' stroke-width='3.2' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16191D; --ink2:#22272E; --ink3:#2E343C; --slate:#5B6470; --steel:#8A939E; --mist:#C9CED4;
+  --line:#E3DED6; --paper:#F5F2EE; --bg:#FAF8F5; --copper:#B87333; --copper2:#9A5E27; --copperL:#E8C9A9;
+  --wa:#1F8F4E; --r:14px;
+  --sans:'IBM Plex Sans','IBM Plex Sans Arabic',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+[dir=rtl] body{font-family:'IBM Plex Sans Arabic','IBM Plex Sans',system-ui,sans-serif}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono);letter-spacing:.02em}
+/* nav */
+header{position:sticky;top:0;z-index:20;background:rgba(22,25,29,.94);backdrop-filter:blur(8px);color:#fff}
+.nav{display:flex;align-items:center;gap:22px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.14em;font-size:14px;white-space:nowrap}
+.logo svg{flex:none}
+.logo b{color:var(--copper)}
+.links{display:flex;gap:4px;margin-inline-start:auto}
+.links a{text-decoration:none;color:var(--mist);padding:8px 12px;border-radius:8px;font-size:14px}
+.links a:hover{color:#fff;background:var(--ink3)}
+.lang{background:none;border:1px solid var(--ink3);color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;font:500 13px var(--sans)}
+.team{font-size:13px;color:var(--steel);text-decoration:none;white-space:nowrap}
+.team:hover{color:#fff}
+/* hero */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:88px;padding-bottom:96px}
+.kicker{font:500 12px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--copper)}
+[dir=rtl] .kicker{letter-spacing:0;font-family:var(--sans);font-size:14px}
+h1{font-size:clamp(34px,5vw,58px);line-height:1.08;margin:14px 0 20px;font-weight:700;letter-spacing:-.02em}
+[dir=rtl] h1{line-height:1.3;letter-spacing:0}
+.hero p.lead{font-size:19px;color:var(--mist);max-width:560px;margin:0 0 32px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid transparent;cursor:pointer}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.wa:hover{background:#18763f}
+.btn.ghost{border-color:var(--ink3);color:#fff}
+.btn.ghost:hover{border-color:var(--steel)}
+.btn.cu{background:var(--copper);color:#fff}
+.btn.cu:hover{background:var(--copper2)}
+/* drawing */
+.draw{position:relative;aspect-ratio:1/1;max-width:440px;justify-self:end;width:100%}
+[dir=rtl] .draw{justify-self:start}
+.draw svg{width:100%;height:100%}
+.draw .dim{font:500 11px var(--mono);fill:var(--copper)}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--ink2) 1px,transparent 1px),linear-gradient(90deg,var(--ink2) 1px,transparent 1px);background-size:32px 32px;opacity:.55;mask-image:radial-gradient(ellipse at 70% 40%,#000 20%,transparent 70%)}
+/* sections */
+section{padding:96px 0}
+.head{max-width:680px;margin-bottom:44px}
+h2{font-size:clamp(28px,3.4vw,40px);line-height:1.15;margin:10px 0 12px;font-weight:700;letter-spacing:-.01em}
+[dir=rtl] h2{line-height:1.4;letter-spacing:0}
+.head p{color:var(--slate);margin:0;font-size:17px}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.card h3{margin:14px 0 8px;font-size:19px}
+.card p{margin:0;color:var(--slate);font-size:15px}
+.ico{width:44px;height:44px;border-radius:10px;background:var(--paper);display:grid;place-items:center;color:var(--copper2)}
+.card.lead{grid-row:span 2;background:var(--ink);color:#fff;border-color:var(--ink);display:flex;flex-direction:column}
+.card.lead p{color:var(--mist)}
+.card.lead .ico{background:var(--ink3);color:var(--copper)}
+.card.lead ul{margin:18px 0 0;padding:0;list-style:none;color:var(--mist);font-size:15px}
+.card.lead li{padding:9px 0;border-top:1px solid var(--ink3)}
+.card.lead .btn{margin-top:auto;align-self:flex-start}
+/* work */
+.work{background:var(--paper)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.job{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.job .ph{aspect-ratio:4/3;background:var(--ink2);position:relative;overflow:hidden}
+.job .ph img{width:100%;height:100%;object-fit:cover}
+.job .ph .tag{position:absolute;top:12px;inset-inline-start:12px;background:rgba(22,25,29,.8);color:#fff;font-size:12px;padding:4px 10px;border-radius:99px}
+.job .tx{padding:18px 20px 20px}
+.job h3{margin:0 0 6px;font-size:17px}
+.job p{margin:0;color:var(--slate);font-size:14px}
+.job .spec{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.job .spec span{font:500 12px var(--mono);background:var(--paper);padding:3px 8px;border-radius:6px;color:var(--ink3)}
+.soon{border:1.5px dashed var(--copperL);background:transparent;display:grid;place-items:center;text-align:center;padding:32px;color:var(--slate);min-height:280px}
+.soon b{display:block;color:var(--ink);font-size:17px;margin-bottom:6px}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.step{position:relative;padding-top:22px;border-top:2px solid var(--ink)}
+.step::before{counter-increment:s;content:"0" counter(s);font:500 13px var(--mono);color:var(--copper2)}
+.step h3{margin:8px 0 6px;font-size:18px}
+.step p{margin:0;color:var(--slate);font-size:15px}
+/* proof */
+.proof{background:var(--ink);color:#fff}
+.proof .head p{color:var(--mist)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pcard{border:1px solid var(--ink3);border-radius:var(--r);padding:24px}
+.pcard .k{font:500 12px var(--mono);color:var(--copper);letter-spacing:.06em}
+.pcard h3{margin:10px 0 6px;font-size:18px}
+.pcard p{margin:0;color:var(--mist);font-size:15px}
+/* contact */
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
+.cbox{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px}
+.cbox h3{margin:0 0 8px;font-size:22px}
+.cbox p{color:var(--slate);margin:0 0 22px}
+.cline{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid var(--line);font-size:15px}
+.cline span:first-child{color:var(--slate)}
+.cline a{text-decoration:none;font-weight:600}
+.send{background:var(--paper);border-radius:var(--r);padding:32px}
+.send ol{margin:0;padding-inline-start:20px;color:var(--ink3)}
+.send li{padding:6px 0}
+footer{background:var(--ink);color:var(--steel);font-size:13px;padding:36px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
+footer .reg{margin-inline-start:auto}
+footer a{color:var(--mist);text-decoration:none}
+.float{position:fixed;bottom:20px;inset-inline-end:20px;z-index:30;width:56px;height:56px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+/* lang swap */
+[data-ar]{}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:56px;padding-bottom:64px}
+  .draw{max-width:320px;justify-self:center!important}
+  .svc,.gal,.pgrid{grid-template-columns:1fr 1fr}
+  .card.lead{grid-row:auto;grid-column:1/-1}
+  .steps{grid-template-columns:1fr 1fr;gap:28px 16px}
+  .contact{grid-template-columns:1fr}
+  .links{display:none}
+  .lang{margin-inline-start:auto}
+  section{padding:72px 0}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .svc,.gal,.pgrid,.steps{grid-template-columns:1fr}
+  .team{display:none}
+  .hero p.lead{font-size:17px}
+  footer .reg{margin-inline-start:0}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="VaultX Industrial">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#22272E"/><path d="M8 9l8 15 8-15" fill="none" stroke="#B87333" stroke-width="3.2" stroke-linejoin="round"/></svg>
+      <span><b>VAULTX</b> INDUSTRIAL</span>
+    </a>
+    <nav class="links">
+      <a href="#services" data-en="Services" data-ar="الخدمات">الخدمات</a>
+      <a href="#work" data-en="Our work" data-ar="أعمالنا">أعمالنا</a>
+      <a href="#process" data-en="How it works" data-ar="آلية العمل">آلية العمل</a>
+      <a href="#contact" data-en="Contact" data-ar="تواصل معنا">تواصل معنا</a>
+    </nav>
+    <button class="lang" id="lang" onclick="setLang(lang === 'ar' ? 'en' : 'ar')">English</button>
+    <a class="team" href="https://orders.vaultxsa.com" data-en="Team sign-in" data-ar="دخول الفريق">دخول الفريق</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<div class="hero">
+  <div class="grid-bg"></div>
+  <div class="wrap" style="position:relative">
+    <div>
+      <div class="kicker" data-en="Riyadh · Spare parts recovery" data-ar="الرياض · استعادة قطع الغيار">الرياض · استعادة قطع الغيار</div>
+      <h1 data-en="The part is discontinued. Your machine doesn't have to be." data-ar="القطعة توقّف تصنيعها؟ آلتك لا يجب أن تتوقف.">القطعة توقّف تصنيعها؟ آلتك لا يجب أن تتوقف.</h1>
+      <p class="lead" data-en="Send us the worn or broken part. We measure it, model it, make a sample for your approval, then deliver the batch — with an inspection report and a re-order code you can use any time." data-ar="أرسل لنا القطعة التالفة أو المستهلكة. نقيسها ونصمّمها، ونصنع عيّنة لاعتمادك، ثم نسلّم الكمية — مع تقرير فحص ورمز إعادة طلب تستخدمه متى شئت.">أرسل لنا القطعة التالفة أو المستهلكة. نقيسها ونصمّمها، ونصنع عيّنة لاعتمادك، ثم نسلّم الكمية — مع تقرير فحص ورمز إعادة طلب تستخدمه متى شئت.</p>
+      <div class="cta">
+        <a class="btn wa" href="#" data-wa="hero">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l2 .9c.3.1.5.2.5.3.1.2.1.8-.2 1.6z"/></svg>
+          <span data-en="Send a photo on WhatsApp" data-ar="أرسل صورة القطعة واتساب">أرسل صورة القطعة واتساب</span></a>
+        <a class="btn ghost" href="#work" data-en="See our work" data-ar="شاهد أعمالنا">شاهد أعمالنا</a>
+      </div>
+    </div>
+    <div class="draw" aria-hidden="true" dir="ltr">
+      <svg viewBox="0 0 400 400" direction="ltr">
+        <g fill="none" stroke="#C9CED4" stroke-width="1.6">
+          <polygon points="200,70 312,135 312,265 200,330 88,265 88,135" />
+          <circle cx="200" cy="200" r="62"/>
+          <circle cx="200" cy="200" r="52" stroke-dasharray="4 5" stroke="#8A939E"/>
+        </g>
+        <g stroke="#B87333" stroke-width="1.2" fill="none">
+          <line x1="88" y1="356" x2="312" y2="356"/><line x1="88" y1="345" x2="88" y2="367"/><line x1="312" y1="345" x2="312" y2="367"/>
+          <line x1="200" y1="200" x2="245" y2="155"/>
+        </g>
+        <text class="dim" x="200" y="350" text-anchor="middle">28.00 ±0.01</text>
+                <text class="dim" x="250" y="150">C2</text>
+        <g stroke="#3A414B" stroke-width="1"><line x1="200" y1="40" x2="200" y2="360" stroke-dasharray="10 4 2 4"/><line x1="40" y1="200" x2="360" y2="200" stroke-dasharray="10 4 2 4"/></g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker" data-en="What we do" data-ar="ماذا نقدّم">ماذا نقدّم</div>
+      <h2 data-en="From one broken part to a repeatable supply" data-ar="من قطعة واحدة تالفة إلى توريد متكرر">من قطعة واحدة تالفة إلى توريد متكرر</h2>
+      <p data-en="Tolerances, materials and quantities are set by your requirement, not by a catalogue." data-ar="التفاوتات والمواد والكميات حسب متطلباتك، لا حسب كتالوج.">التفاوتات والمواد والكميات حسب متطلباتك، لا حسب كتالوج.</p>
+    </div>
+    <div class="svc">
+      <div class="card lead">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+        <h3 data-en="Spare parts by reverse engineering" data-ar="قطع غيار بالهندسة العكسية">قطع غيار بالهندسة العكسية</h3>
+        <p data-en="Discontinued, imported or long-lead parts recreated from your sample — measured, modelled and documented so the next order is faster." data-ar="قطع متوقفة أو مستوردة أو طويلة التوريد نعيد تصنيعها من عيّنتك — نقيسها ونصمّمها ونوثّقها لتكون الطلبية القادمة أسرع.">قطع متوقفة أو مستوردة أو طويلة التوريد نعيد تصنيعها من عيّنتك — نقيسها ونصمّمها ونوثّقها لتكون الطلبية القادمة أسرع.</p>
+        <ul>
+          <li data-en="Gears, bushings, brackets, housings, covers" data-ar="تروس، جُلب، حوامل، أغطية، هياكل">تروس، جُلب، حوامل، أغطية، هياكل</li>
+          <li data-en="Modifying existing parts to fit" data-ar="تعديل قطع موجودة لتناسب الاستخدام">تعديل قطع موجودة لتناسب الاستخدام</li>
+          <li data-en="Engineering file kept for re-orders" data-ar="نحتفظ بالملف الهندسي لإعادة الطلب">نحتفظ بالملف الهندسي لإعادة الطلب</li>
+        </ul>
+        <a class="btn cu" href="#" data-wa="parts" style="margin-top:22px" data-en="Ask about a part" data-ar="استفسر عن قطعة">استفسر عن قطعة</a>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M7 20V9l5-5 5 5v11"/><path d="M12 4v8"/></svg></div>
+        <h3 data-en="CNC machining" data-ar="تشغيل CNC">تشغيل CNC</h3>
+        <p data-en="Metal and plastic parts, modifications and small batches to drawing or sample." data-ar="قطع معدنية وبلاستيكية، تعديلات ودفعات صغيرة حسب الرسم أو العيّنة.">قطع معدنية وبلاستيكية، تعديلات ودفعات صغيرة حسب الرسم أو العيّنة.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 11h16M4 15h16M4 19h16"/><path d="M9 3l-2 4M17 3l-2 4"/></svg></div>
+        <h3 data-en="Additive manufacturing" data-ar="التصنيع بالإضافة (الطباعة ثلاثية الأبعاد)">التصنيع بالإضافة (الطباعة ثلاثية الأبعاد)</h3>
+        <p data-en="Functional parts, prototypes, covers and guards — in the material your use needs." data-ar="قطع وظيفية ونماذج أولية وأغطية وواقيات — بالمادة المناسبة للاستخدام.">قطع وظيفية ونماذج أولية وأغطية وواقيات — بالمادة المناسبة للاستخدام.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 14V8h4v6M13 14V5h4v9"/></svg></div>
+        <h3 data-en="Fixtures and jigs" data-ar="التثبيتات والجيغات">التثبيتات والجيغات</h3>
+        <p data-en="Welding fixtures, drilling jigs and holding tools that make your production repeatable." data-ar="تثبيتات لحام وجيغات تثقيب وأدوات تثبيت تجعل إنتاجك متكرراً بنفس الدقة.">تثبيتات لحام وجيغات تثقيب وأدوات تثبيت تجعل إنتاجك متكرراً بنفس الدقة.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 8V5h8v3M9 13h6"/></svg></div>
+        <h3 data-en="Molds and casting" data-ar="القوالب والصب">القوالب والصب</h3>
+        <p data-en="We deliver the mold, or the cast parts — in the casting material you specify." data-ar="نسلّم القالب، أو القطع المصبوبة — بمادة الصب التي تحددها.">نسلّم القالب، أو القطع المصبوبة — بمادة الصب التي تحددها.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker" data-en="Our work" data-ar="أعمالنا">أعمالنا</div>
+      <h2 data-en="Recent jobs" data-ar="أعمال حديثة">أعمال حديثة</h2>
+      <p data-en="A few of the parts we have made and modified. Client names are shared only with permission." data-ar="نماذج من القطع التي صنعناها وعدّلناها. لا نذكر أسماء العملاء إلا بإذنهم.">نماذج من القطع التي صنعناها وعدّلناها. لا نذكر أسماء العملاء إلا بإذنهم.</p>
+    </div>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker" data-en="How it works" data-ar="آلية العمل">آلية العمل</div>
+      <h2 data-en="Four steps, no surprises" data-ar="أربع خطوات، بدون مفاجآت">أربع خطوات، بدون مفاجآت</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3 data-en="Send the part" data-ar="أرسل القطعة">أرسل القطعة</h3><p data-en="A photo on WhatsApp is enough to start. We'll tell you if we need the sample or a drawing." data-ar="تكفي صورة على الواتساب للبدء، ونخبرك إن احتجنا العيّنة أو الرسم.">تكفي صورة على الواتساب للبدء، ونخبرك إن احتجنا العيّنة أو الرسم.</p></div>
+      <div class="step"><h3 data-en="Get a clear quote" data-ar="عرض سعر واضح">عرض سعر واضح</h3><p data-en="Engineering and part price shown separately, with lead time and payment terms." data-ar="نفصل أجور الهندسة عن سعر القطعة، مع مدة التنفيذ وشروط الدفع.">نفصل أجور الهندسة عن سعر القطعة، مع مدة التنفيذ وشروط الدفع.</p></div>
+      <div class="step"><h3 data-en="Approve a sample" data-ar="اعتمد العيّنة">اعتمد العيّنة</h3><p data-en="We make the first piece with a measured inspection report. The batch starts only after you approve it." data-ar="نصنع القطعة الأولى مع تقرير فحص بالقياسات، ولا تبدأ الكمية إلا بعد اعتمادك.">نصنع القطعة الأولى مع تقرير فحص بالقياسات، ولا تبدأ الكمية إلا بعد اعتمادك.</p></div>
+      <div class="step"><h3 data-en="Delivery and re-order" data-ar="التسليم وإعادة الطلب">التسليم وإعادة الطلب</h3><p data-en="Delivered with a delivery note and a re-order code. Next time, just send the code." data-ar="نسلّم مع سند تسليم ورمز إعادة طلب. في المرة القادمة أرسل الرمز فقط.">نسلّم مع سند تسليم ورمز إعادة طلب. في المرة القادمة أرسل الرمز فقط.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker" data-en="Why clients come back" data-ar="لماذا يعود عملاؤنا">لماذا يعود عملاؤنا</div>
+      <h2 data-en="Documented like a factory, quick like a workshop" data-ar="توثيق بمستوى المصانع، وسرعة بمرونة الورشة">توثيق بمستوى المصانع، وسرعة بمرونة الورشة</h2>
+      <p data-en="Every job is run by a mechanical and production engineer, with paperwork your quality team can file." data-ar="يدير كل عمل مهندس ميكانيكي وإنتاج، مع مستندات يمكن لفريق الجودة لديك اعتمادها.">يدير كل عمل مهندس ميكانيكي وإنتاج، مع مستندات يمكن لفريق الجودة لديك اعتمادها.</p>
+    </div>
+    <div class="pgrid">
+      <div class="pcard"><div class="k">VX-06</div><h3 data-en="Inspection report" data-ar="تقرير الفحص">تقرير الفحص</h3><p data-en="Measured results against your tolerance on the first article." data-ar="نتائج القياس مقابل التفاوت المطلوب على القطعة الأولى.">نتائج القياس مقابل التفاوت المطلوب على القطعة الأولى.</p></div>
+      <div class="pcard"><div class="k">VX-07</div><h3 data-en="Delivery note" data-ar="سند التسليم">سند التسليم</h3><p data-en="Every delivery shows what was delivered, what's left and how to re-order." data-ar="كل تسليم يوضح ما تم تسليمه والمتبقي وطريقة إعادة الطلب.">كل تسليم يوضح ما تم تسليمه والمتبقي وطريقة إعادة الطلب.</p></div>
+      <div class="pcard"><div class="k">VAT</div><h3 data-en="Tax invoice" data-ar="فاتورة ضريبية">فاتورة ضريبية</h3><p data-en="Registered company with CR and VAT number for your procurement." data-ar="شركة مسجلة بسجل تجاري ورقم ضريبي لمشترياتكم.">شركة مسجلة بسجل تجاري ورقم ضريبي لمشترياتكم.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap contact">
+    <div class="cbox">
+      <div class="kicker" data-en="Contact" data-ar="تواصل معنا">تواصل معنا</div>
+      <h3 style="margin-top:10px" data-en="Tell us about the part" data-ar="أخبرنا عن القطعة">أخبرنا عن القطعة</h3>
+      <p data-en="We usually reply the same day." data-ar="نرد عادةً في نفس اليوم.">نرد عادةً في نفس اليوم.</p>
+      <div class="cline"><span data-en="WhatsApp" data-ar="واتساب">واتساب</span><a href="#" data-wa="contact" class="mono" dir="ltr">054 274 0498</a></div>
+      <div class="cline"><span data-en="Email" data-ar="البريد">البريد</span><a href="mailto:info@vaultxsa.com" dir="ltr">info@vaultxsa.com</a></div>
+      <div class="cline"><span data-en="Location" data-ar="الموقع">الموقع</span><span data-en="Riyadh, Saudi Arabia" data-ar="الرياض، المملكة العربية السعودية">الرياض، المملكة العربية السعودية</span></div>
+      <a class="btn wa" href="#" data-wa="contact2" style="margin-top:18px" data-en="Message us on WhatsApp" data-ar="راسلنا على الواتساب">راسلنا على الواتساب</a>
+    </div>
+    <div class="send">
+      <h3 style="margin:0 0 12px;font-size:20px" data-en="What to send" data-ar="ماذا ترسل">ماذا ترسل</h3>
+      <ol>
+        <li data-en="Clear photos of the part from a few sides" data-ar="صور واضحة للقطعة من عدة جهات">صور واضحة للقطعة من عدة جهات</li>
+        <li data-en="The machine it belongs to, if you know it" data-ar="اسم الآلة التي تتبعها إن وُجد">اسم الآلة التي تتبعها إن وُجد</li>
+        <li data-en="Quantity you need and by when" data-ar="الكمية المطلوبة والموعد">الكمية المطلوبة والموعد</li>
+        <li data-en="A drawing, if you have one" data-ar="الرسم الهندسي إن توفر">الرسم الهندسي إن توفر</li>
+      </ol>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> VaultX Industrial · فولت إكس الصناعية</span>
+    <span class="reg" data-en="A sister company of Silk Solutions Co. · CR 4650072960 · VAT 311460424200003" data-ar="شركة شقيقة لشركة حلول الحرير · س.ت 4650072960 · الرقم الضريبي 311460424200003">شركة شقيقة لشركة حلول الحرير · س.ت 4650072960 · الرقم الضريبي 311460424200003</span>
+    <a href="https://orders.vaultxsa.com" data-en="Team sign-in" data-ar="دخول الفريق">دخول الفريق</a>
+  </div>
+</footer>
+
+<a class="float" href="#" data-wa="float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l2 .9c.3.1.5.2.5.3.1.2.1.8-.2 1.6z"/></svg>
+</a>
+
+<script>
+/* ─── OUR WORK ─── add a job: copy one block, put the photo in /work/ and set img: 'work/name.jpg' ─── */
+const WORK = [
+  { tag: {en:'CNC modification', ar:'تعديل CNC'},
+    title: {en:'Nut width reduction', ar:'تقليل عرض صواميل'},
+    text: {en:'Client-supplied nuts machined from 38 mm to 28 mm wide with a 2 mm chamfer, thread checked with a mating bolt on every lot.', ar:'تشغيل صواميل العميل من عرض ٣٨ مم إلى ٢٨ مم مع شطف ٢ مم، واختبار السن بمسمار مطابق لكل دفعة.'},
+    spec: ['38 → 28 mm', '± 0.01 mm', 'C2'], img: '' },
+];
+const WA = '966542740498';
+const WA_TEXT = {
+  en: 'Hello VaultX, I need a part made / modified. I will send photos.',
+  ar: 'السلام عليكم، أحتاج تصنيع / تعديل قطعة وسأرسل الصور.'
+};
+
+let lang = 'ar';
+function setLang(l) {
+  lang = l;
+  document.documentElement.lang = l; document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-en]').forEach(e => { e.textContent = e.dataset[l]; });
+  document.getElementById('lang').textContent = l === 'ar' ? 'English' : 'العربية';
+  document.querySelectorAll('[data-wa]').forEach(a => { a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(WA_TEXT[l]); a.target = '_blank'; a.rel = 'noopener'; });
+  renderWork();
+  try { localStorage.setItem('vx_lang', l); } catch (e) {}
+}
+function renderWork() {
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const ph = `<svg viewBox="0 0 400 300" width="100%" height="100%" aria-hidden="true"><rect width="400" height="300" fill="#22272E"/><g fill="none" stroke="#5B6470" stroke-width="1.5"><polygon points="200,80 262,115 262,185 200,220 138,185 138,115"/><circle cx="200" cy="150" r="32"/></g><g stroke="#B87333"><line x1="138" y1="250" x2="262" y2="250"/><line x1="138" y1="243" x2="138" y2="257"/><line x1="262" y1="243" x2="262" y2="257"/></g></svg>`;
+  document.getElementById('gal').innerHTML = WORK.map(w => `
+    <article class="job"><div class="ph">${w.img ? `<img src="${esc(w.img)}" alt="${esc(w.title[lang])}" loading="lazy">` : ph}<span class="tag">${esc(w.tag[lang])}</span></div>
+      <div class="tx"><h3>${esc(w.title[lang])}</h3><p>${esc(w.text[lang])}</p>
+      <div class="spec" dir="ltr">${(w.spec||[]).map(s => `<span>${esc(s)}</span>`).join('')}</div></div></article>`).join('')
+    + `<div class="job soon"><div><b>${lang === 'ar' ? 'أعمال جديدة قريباً' : 'More jobs coming soon'}</b>${lang === 'ar' ? 'نضيف صور أعمالنا الحديثة باستمرار.' : 'We add photos of recent work as we go.'}</div></div>`;
+}
+document.getElementById('yr').textContent = new Date().getFullYear();
+let saved = null; try { saved = localStorage.getItem('vx_lang'); } catch (e) {}
+setLang(saved || ((navigator.language || '').startsWith('ar') ? 'ar' : 'en'));
+</script>
+</body>
+</html>

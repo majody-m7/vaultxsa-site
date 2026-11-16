@@ -326,10 +326,30 @@ footer a{color:var(--mist);text-decoration:none}
 <script>
 /* ─── OUR WORK ─── add a job: copy one block, put the photo in /work/ and set img: 'work/name.jpg' ─── */
 const WORK = [
+  { tag: {en:'Design · 3D printing · Acrylic', ar:'تصميم · طباعة ثلاثية الأبعاد · أكريليك'},
+    title: {en:'Award shields for a space-apps hackathon', ar:'دروع تكريم لهاكاثون تطبيقات الفضاء'},
+    text: {en:'Designed and made the full set of award shields: 3D-printed rocket and base, laser-cut acrylic plates, with all text and logos UV-printed for sharp, readable lettering.', ar:'تصميم وتنفيذ مجموعة دروع التكريم كاملة: صاروخ وقاعدة بالطباعة ثلاثية الأبعاد، وألواح أكريليك مقصوصة بالليزر، وجميع النصوص والشعارات مطبوعة بالأشعة فوق البنفسجية لوضوح تام.'},
+    spec: ['FDM', 'Laser cut', 'UV print'], img: 'work/award-shield.jpg', pos: 'center 72%' },
   { tag: {en:'CNC modification', ar:'تعديل CNC'},
     title: {en:'Nut width reduction', ar:'تقليل عرض صواميل'},
     text: {en:'Client-supplied nuts machined from 38 mm to 28 mm wide with a 2 mm chamfer, thread checked with a mating bolt on every lot.', ar:'تشغيل صواميل العميل من عرض ٣٨ مم إلى ٢٨ مم مع شطف ٢ مم، واختبار السن بمسمار مطابق لكل دفعة.'},
-    spec: ['38 → 28 mm', '± 0.01 mm', 'C2'], img: '' },
+    spec: ['38 → 28 mm', '± 0.01 mm', 'C2'], img: 'work/nut-caliper.jpg' },
+  { tag: {en:'Reverse engineering · Repair', ar:'هندسة عكسية · إصلاح'},
+    title: {en:'Sewer inspection crawler recovery', ar:'إعادة تأهيل روبوت فحص أنابيب الصرف'},
+    text: {en:'For a national water utility: reverse-engineered worn parts of a pipe inspection crawler, manufactured the replacements and traced and fixed its electronics and connector faults.', ar:'لجهة مياه وطنية: هندسة عكسية للقطع التالفة في روبوت فحص الأنابيب، وتصنيع القطع البديلة، وتتبع أعطال الإلكترونيات والموصلات وإصلاحها.'},
+    spec: ['Reverse eng.', 'Parts', 'Electronics'], img: 'work/crawler-head.jpg' },
+  { tag: {en:'Design · 3D printing', ar:'تصميم · طباعة ثلاثية الأبعاد'},
+    title: {en:'RC car chassis and body', ar:'هيكل وغطاء سيارة تحكم عن بعد'},
+    text: {en:'Designed and printed the chassis parts and outer cover for a university robotics car carrying depth cameras and onboard electronics.', ar:'تصميم وطباعة أجزاء الهيكل والغطاء الخارجي لسيارة روبوتية جامعية تحمل كاميرات عمق وإلكترونيات.'},
+    spec: ['FDM', 'Fit-to-chassis'], img: 'work/rc-car.jpg', pos: 'center 60%' },
+  { tag: {en:'Design · 3D printing', ar:'تصميم · طباعة ثلاثية الأبعاد'},
+    title: {en:'Low-poly panda mask', ar:'قناع باندا بتصميم مضلع'},
+    text: {en:'Wearable low-poly mask designed and printed for a university event.', ar:'قناع قابل للارتداء بتصميم مضلع، صُمم وطُبع لفعالية جامعية.'},
+    spec: ['FDM', 'Wearable'], img: 'work/panda-mask.jpg' },
+  { tag: {en:'Molds', ar:'قوالب'},
+    title: {en:'Silicone cake mold', ar:'قالب سيليكون للكيك'},
+    text: {en:'Custom textured log-cake mold for a cake company: 3D-printed master, cast in silicone.', ar:'قالب كيك مخصص بنقشة جذع الشجرة لشركة كيك: نموذج أساسي بالطباعة ثلاثية الأبعاد ثم صب السيليكون.'},
+    spec: ['25 × 6 × 6 cm', 'Silicone'], img: 'work/cake-mold.jpg' },
 ];
 const WA = '966542740498';
 const WA_TEXT = {
@@ -351,7 +371,7 @@ function renderWork() {
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const ph = `<svg viewBox="0 0 400 300" width="100%" height="100%" aria-hidden="true"><rect width="400" height="300" fill="#22272E"/><g fill="none" stroke="#5B6470" stroke-width="1.5"><polygon points="200,80 262,115 262,185 200,220 138,185 138,115"/><circle cx="200" cy="150" r="32"/></g><g stroke="#B87333"><line x1="138" y1="250" x2="262" y2="250"/><line x1="138" y1="243" x2="138" y2="257"/><line x1="262" y1="243" x2="262" y2="257"/></g></svg>`;
   document.getElementById('gal').innerHTML = WORK.map(w => `
-    <article class="job"><div class="ph">${w.img ? `<img src="${esc(w.img)}" alt="${esc(w.title[lang])}" loading="lazy">` : ph}<span class="tag">${esc(w.tag[lang])}</span></div>
+    <article class="job"><div class="ph">${w.img ? `<img src="${esc(w.img)}" alt="${esc(w.title[lang])}" loading="lazy"${w.pos ? ` style="object-position:${esc(w.pos)}"` : ''}>` : ph}<span class="tag">${esc(w.tag[lang])}</span></div>
       <div class="tx"><h3>${esc(w.title[lang])}</h3><p>${esc(w.text[lang])}</p>
       <div class="spec" dir="ltr">${(w.spec||[]).map(s => `<span>${esc(s)}</span>`).join('')}</div></div></article>`).join('')
     + `<div class="job soon"><div><b>${lang === 'ar' ? 'أعمال جديدة قريباً' : 'More jobs coming soon'}</b>${lang === 'ar' ? 'نضيف صور أعمالنا الحديثة باستمرار.' : 'We add photos of recent work as we go.'}</div></div>`;
